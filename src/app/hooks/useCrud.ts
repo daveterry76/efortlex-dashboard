@@ -18,10 +18,11 @@ const useCrud = () => {
     
   }
 
-  const deletePopularProducts = (id: string): void => {
+  const deletePopularProducts = (id: string): React.MouseEventHandler<SVGSVGElement> | undefined => {
     const filteredProducts = popularProducts.filter((product) => product.id !== id)
     setPopularProducts(filteredProducts)
-    // console.log(popularProducts)
+    console.log(popularProducts)
+    return
   }
 
 
