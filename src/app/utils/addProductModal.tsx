@@ -33,8 +33,8 @@ export default function AddProductModal({ size, setSize }: any) {
     setImageSrc('');
     setProductTitle('');
     setProductDesc('');
-    setAmountNew(0);
-    setAmountOld(0);
+    setAmountNew('0');
+    setAmountOld('0');
     onClose();
   }
 
@@ -58,9 +58,9 @@ export default function AddProductModal({ size, setSize }: any) {
                 <label className="text-xs lg:text-sm">Add Product Description:</label>
                 <Textarea value={productDesc} onChange={(e) => setProductDesc(e.target.value)} type="string" size="sm" />
                 <label className="text-xs lg:text-sm">Add Old Amount</label>
-                <Input value={amountOld} onChange={(e) => setAmountOld(e.target.value)} type="number" size="sm" />
+                <input value={amountOld} onChange={(e) => setAmountOld(e.target.value)} type="number" />
                 <label className="text-xs lg:text-sm">Add New Amount</label>
-                <Input value={amountNew} onChange={(e) => setAmountNew(e.target.value)} type="number" size="sm" />
+                <input value={amountNew} onChange={(e) => setAmountNew(e.target.value)} type="number" />
                 <label className="text-xs lg:text-sm">Add Url Link to Image <span className="text-[8px] underline"><strong>select from <a href="https://picsum.photos/" target='_blank'>https://picsum.photos/</a></strong></span></label>
                 <Input value={imageSrc} onChange={(e) => setImageSrc(e.target.value)} type="url" size="sm" />
               </ModalBody>

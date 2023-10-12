@@ -9,7 +9,6 @@ import { ProductContext } from '@/app/contexts/ProductsContext'
 import { ProductsContextTypes } from '@/app/types/ProductsContextTypes'
 import AddProductModal from '@/app/utils/addProductModal'
 import { Button, useDisclosure } from '@nextui-org/react'
-import OptionsDropdown from '@/app/utils/optionsDropdown'
 import hamburger from '../assets/hamburger.svg'
 import SideNavHamburger from '@/app/utils/sideNavHamburger'
 import useCrud from '@/app/hooks/useCrud'
@@ -61,7 +60,7 @@ const PopularProducts = () => {
                             <span className='font-bold text-[9px] lg:text-[11px]'>${product.amountNew}</span>
                             <span className='text-[9px] lg:text-[11px] opacity-50 mx-3'><s>${product.amountOld}</s></span>
 
-                            <p className='text-[#7B61FF] text-[9px] lg:text-[11.5px] my-1'>You save ${(product.amountOld - product.amountNew).toFixed(2)}</p>
+                            <p className='text-[#7B61FF] text-[9px] lg:text-[11.5px] my-1'>You save ${(Number(product.amountOld) - Number(product.amountNew)).toFixed(2)}</p>
 
                             <Image
                                 src={rating}

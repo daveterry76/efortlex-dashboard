@@ -5,20 +5,14 @@ import { v4 as uuid } from 'uuid'
 
 const useCrud = () => {
   
-  const { id, imageSrc, productTitle, productDesc, amountNew, amountOld, popularProducts, setPopularProducts } = useContext<ProductsContextTypes>(ProductContext)
-  const [showEdit, setShowEdit] = useState(false);
+  const { id, imageSrc, setImageSrc, productTitle, setProductTitle, productDesc, setProductDesc, amountNew, setAmountNew, amountOld, setAmountOld, amountDiff, setAmountDiff, popularProducts, setPopularProducts } = useContext<ProductsContextTypes>(ProductContext)
 
   const addPopularProducts = () => {
-    const newProduct = { id: uuid(), imageSrc, productTitle, productDesc, amountNew, amountOld }
+    const newProduct = { id: uuid(), imageSrc, setImageSrc, productTitle, setProductTitle, productDesc, setProductDesc, amountNew, setAmountNew, amountOld, setAmountOld, amountDiff, setAmountDiff }
     setPopularProducts([...popularProducts, newProduct]);
   }
 
-
-  const editPopularProducts = () => {
-    
-  }
-
-  const deletePopularProducts = (id: string): React.MouseEventHandler<SVGSVGElement> | undefined => {
+  const deletePopularProducts = (id: string | undefined): React.MouseEventHandler<SVGSVGElement> | undefined => {
     const filteredProducts = popularProducts.filter((product) => product.id !== id)
     setPopularProducts(filteredProducts)
     console.log(popularProducts)
@@ -29,7 +23,6 @@ const useCrud = () => {
   return (
     {
     addPopularProducts,
-    editPopularProducts,
     deletePopularProducts
     }
   )

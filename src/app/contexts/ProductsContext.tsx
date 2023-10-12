@@ -1,21 +1,22 @@
 'use client'
 
-import React, { createContext, useState } from 'react'
+import React, { createContext, Dispatch, SetStateAction, useState } from 'react'
 import { products } from '../constants/Products'
 import { ProductsDefault } from '../constants/ProductsDefault'
+import { PopularProduct } from '../types/ProductsContextTypes'
 import { ProductsContextTypes } from '../types/ProductsContextTypes'
 
 
 export const ProductContext = createContext<ProductsContextTypes>(ProductsDefault)
 
 const ProductsContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [popularProducts, setPopularProducts] = useState<{}>(products);
+  const [popularProducts, setPopularProducts] = useState<PopularProduct[]>(products);
 
   const [imageSrc, setImageSrc] = useState<any>()
   const [productTitle, setProductTitle] = useState<string>('')
   const [productDesc, setProductDesc] = useState<string>('')
-  const [amountNew, setAmountNew] = useState<number>(0);
-  const [amountOld, setAmountOld] = useState<number>(0);
+  const [amountNew, setAmountNew] = useState<string | number>(0);
+  const [amountOld, setAmountOld] = useState<string | number>(0);
   const [amountDiff, setAmountDiff] = useState<number>(0);
 
 
